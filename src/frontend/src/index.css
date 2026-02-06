@@ -1,0 +1,140 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    :root {
+        --radius: 0.25rem;
+        
+        /* Minecraft-inspired earthy palette - Light mode */
+        --background: 0.95 0.02 60;
+        --foreground: 0.25 0.03 30;
+        --card: 0.98 0.01 60;
+        --card-foreground: 0.25 0.03 30;
+        --popover: 0.98 0.01 60;
+        --popover-foreground: 0.25 0.03 30;
+        
+        /* Earthy brown/stone primary */
+        --primary: 0.35 0.08 40;
+        --primary-foreground: 0.98 0.01 60;
+        
+        /* Lighter stone secondary */
+        --secondary: 0.85 0.02 50;
+        --secondary-foreground: 0.25 0.03 30;
+        
+        --muted: 0.88 0.02 50;
+        --muted-foreground: 0.50 0.03 40;
+        
+        /* Grass green accent */
+        --accent: 0.55 0.12 140;
+        --accent-foreground: 0.98 0.01 60;
+        
+        /* Red/lava destructive */
+        --destructive: 0.55 0.22 25;
+        --destructive-foreground: 0.98 0.01 60;
+        
+        --border: 0.80 0.02 50;
+        --input: 0.80 0.02 50;
+        --ring: 0.35 0.08 40;
+        
+        --chart-1: 0.55 0.12 140;
+        --chart-2: 0.50 0.15 220;
+        --chart-3: 0.60 0.18 30;
+        --chart-4: 0.55 0.20 280;
+        --chart-5: 0.65 0.15 180;
+    }
+
+    .dark {
+        /* Dark mode - deeper, richer tones */
+        --background: 0.20 0.03 30;
+        --foreground: 0.95 0.02 60;
+        --card: 0.25 0.03 35;
+        --card-foreground: 0.95 0.02 60;
+        --popover: 0.22 0.03 32;
+        --popover-foreground: 0.95 0.02 60;
+        
+        /* Lighter stone for dark mode primary */
+        --primary: 0.70 0.05 50;
+        --primary-foreground: 0.20 0.03 30;
+        
+        --secondary: 0.30 0.03 35;
+        --secondary-foreground: 0.95 0.02 60;
+        
+        --muted: 0.30 0.03 35;
+        --muted-foreground: 0.65 0.03 50;
+        
+        /* Brighter grass green for dark mode */
+        --accent: 0.60 0.15 140;
+        --accent-foreground: 0.20 0.03 30;
+        
+        /* Brighter lava red for dark mode */
+        --destructive: 0.60 0.25 25;
+        --destructive-foreground: 0.95 0.02 60;
+        
+        --border: 0.35 0.03 35;
+        --input: 0.35 0.03 35;
+        --ring: 0.70 0.05 50;
+        
+        --chart-1: 0.60 0.15 140;
+        --chart-2: 0.55 0.18 220;
+        --chart-3: 0.65 0.20 30;
+        --chart-4: 0.60 0.22 280;
+        --chart-5: 0.70 0.18 180;
+    }
+
+    * {
+        @apply border-border;
+    }
+    
+    body {
+        @apply bg-background text-foreground;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+    }
+}
+
+@layer utilities {
+    /* Pixel-perfect text styling */
+    .pixel-text {
+        font-family: 'Courier New', 'Courier', monospace;
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+    }
+    
+    /* Pixelated image rendering */
+    .pixelated {
+        image-rendering: pixelated;
+        image-rendering: -moz-crisp-edges;
+        image-rendering: crisp-edges;
+    }
+    
+    /* Brutal drop shadow for headers */
+    .drop-shadow-brutal {
+        filter: drop-shadow(2px 2px 0px rgba(0, 0, 0, 0.8));
+    }
+    
+    /* Banner background overlay */
+    .banner-bg {
+        position: relative;
+        background-color: oklch(var(--primary));
+    }
+    
+    .banner-bg::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: linear-gradient(180deg, 
+            oklch(var(--primary) / 0.7) 0%, 
+            oklch(var(--primary) / 0.85) 100%
+        );
+        pointer-events: none;
+    }
+    
+    .banner-bg > * {
+        position: relative;
+        z-index: 1;
+    }
+}

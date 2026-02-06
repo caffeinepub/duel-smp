@@ -1,0 +1,35 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-06T22:24:51.852Z",
+  "summary": "Diff adds a global, user-facing initialization/query error banner in the AppLayout and introduces Vite env typings, but does not show any changes to build/deployment workflow configuration or the required static asset files under frontend/public.",
+  "missing_requirements": [
+    {
+      "id": "REQ-14",
+      "requirement": "Investigate and fix the current build/deployment workflow so that a build actually starts when triggered and completes successfully for the current codebase (including clear failure output).",
+      "reason": "The diff only shows frontend component/hook/type additions and an AppLayout change; there is no evidence of changes to deployment/build pipeline configuration (e.g., CI/CD, scripts, dfx config) or logging/error surfacing for build failures.",
+      "evidence": [
+        "<file-diff>: only frontend files added/modified (frontend/src/components/*, frontend/src/hooks/*, frontend/src/vite-env.d.ts)"
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "requirement": "Ensure all statically referenced frontend assets required by the layout are present under frontend/public with matching paths (including /assets/generated/duel-smp-banner.dim_1600x400.png and /assets/generated/duel-smp-logo.dim_512x512.png).",
+      "reason": "AppLayout references the banner/logo paths, but the diff does not include any added/modified files under frontend/public/assets/generated, so there is no evidence the required images were added or verified to exist.",
+      "evidence": [
+        "frontend/src/components/AppLayout.tsx (references /assets/generated/duel-smp-banner.dim_1600x400.png and /assets/generated/duel-smp-logo.dim_512x512.png)",
+        "<file-diff>: no files added under frontend/public"
+      ]
+    }
+  ],
+  "hallucinated_features": [],
+  "confidence": 0.72,
+  "changed_files": [
+    "frontend-file-summaries.txt",
+    "frontend/src/components/AppLayout.tsx",
+    "frontend/src/components/GlobalErrorBanner.tsx",
+    "frontend/src/hooks/useGlobalInitAndQueryErrors.ts",
+    "frontend/src/vite-env.d.ts",
+    "project_state.json"
+  ]
+}

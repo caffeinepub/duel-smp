@@ -1,0 +1,64 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-investigate-and-fix-the-current-build-deployment-workflow-so-that-a-build-actually-starts-when-triggered-and-completes-successfully-for-the-current-codebase",
+      "featureTitle": "Investigate and fix the current build/deployment workflow so that a build actually starts when triggered and completes successfully for the current codebase.",
+      "files": [
+        "frontend/src/components/AppLayout.tsx",
+        "frontend/src/components/GlobalErrorBanner.tsx",
+        "frontend/src/hooks/useGlobalInitAndQueryErrors.ts",
+        "frontend/src/vite-env.d.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-14"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-ensure-all-statically-referenced-frontend-assets-required-by-the-layout-are-present-and-correctly-named-so-they-cannot-cause-build-deploy-failures-or-runtime-asset-resolution-errors-e-g-the-banner-and-logo-referenced-by-frontend-src-components-applayout-tsx",
+      "featureTitle": "Ensure all statically referenced frontend assets required by the layout are present and correctly named so they cannot cause build/deploy failures or runtime asset resolution errors (e.g., the banner and logo referenced by frontend/src/components/AppLayout.tsx).",
+      "files": [
+        "frontend/src/components/AppLayout.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-15"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-minimal-user-facing-error-surface-in-the-frontend-for-initialization-failures-e-g-actor-creation-query-failures-so-that-if-a-deployment-succeeds-but-backend-connectivity-fails-users-see-a-clear-english-error-message-instead-of-a-blank-non-responsive-ui",
+      "featureTitle": "Add a minimal, user-facing error surface in the frontend for initialization failures (e.g., actor creation/query failures) so that if a deployment succeeds but backend connectivity fails, users see a clear English error message instead of a blank/non-responsive UI.",
+      "files": [
+        "frontend/src/components/AppLayout.tsx",
+        "frontend/src/components/GlobalErrorBanner.tsx",
+        "frontend/src/hooks/useGlobalInitAndQueryErrors.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-16"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

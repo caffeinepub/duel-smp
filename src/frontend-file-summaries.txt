@@ -1,0 +1,22 @@
+{
+  "frontend/src/App.tsx": "Main application component that sets up TanStack Router with five routes (dashboard, players, leaderboard, duel, history) all wrapped in the AppLayout component.",
+  "frontend/src/components/AppLayout.tsx": "Shared layout wrapper with Minecraft-inspired banner background, logo, tab-based navigation, global error banner integration, main content outlet, and footer with attribution.",
+  "frontend/src/pages/DashboardPage.tsx": "Statistics dashboard displaying active/eliminated player counts, total matches, current leader (by hearts then wins), and most wins (by wins then hearts) with documented tie-break rules.",
+  "frontend/src/pages/PlayersPage.tsx": "Player management screen with form to add new players (ID and display name) and a list showing all players with remove functionality.",
+  "frontend/src/pages/LeaderboardPage.tsx": "Leaderboard view displaying all players sorted deterministically by current hearts (descending), then wins, then display name.",
+  "frontend/src/pages/DuelPage.tsx": "Duel creation screen showing the active pending duel (if any) and a form to create new duels or generate random ones.",
+  "frontend/src/pages/HistoryPage.tsx": "Match history screen displaying all completed duels sorted by timestamp (most recent first) with full match details.",
+  "frontend/src/components/PlayerList.tsx": "Reusable table component displaying player stats (hearts, wins/losses, totals won/lost, eliminated status) with optional rank display and remove actions.",
+  "frontend/src/components/DuelForm.tsx": "Form component for creating duels with player selection, bet amount inputs (1-5 hearts), bet mode radio buttons (Agreed/Blind), and random duel generation button.",
+  "frontend/src/components/ActiveDuelCard.tsx": "Card component displaying the current active duel with player info, bet amounts (hidden for blind mode until completion), and match completion controls.",
+  "frontend/src/components/MatchCompletionControls.tsx": "Winner declaration controls with two buttons (one per player) that trigger match completion with confirmation dialogs.",
+  "frontend/src/components/MatchHistoryList.tsx": "Table component displaying completed duels with participants, bets, mode badges, winner, and hearts transferred.",
+  "frontend/src/hooks/useQueries.ts": "React Query hooks for all backend operations (players CRUD, duels CRUD, match completion) with proper query invalidation for state synchronization.",
+  "frontend/src/utils/leaderboard.ts": "Deterministic sorting function for leaderboard that orders by current hearts (desc), then wins (desc), then display name (asc).",
+  "frontend/src/utils/stats.ts": "Statistics computation utilities that derive dashboard metrics (active/eliminated counts, total matches, current leader, most wins) from players and duels data.",
+  "frontend/src/index.css": "Global styles with Minecraft-inspired OKLCH color system (earthy browns, stone grays, grass greens, lava reds), pixel-text utilities, and banner background styling for both light and dark modes.",
+  "frontend/tailwind.config.js": "Tailwind configuration extending the theme with Minecraft-inspired design tokens, brutal box shadows, monospace fonts, and custom utilities.",
+  "frontend/src/vite-env.d.ts": "Vite client type reference file that prevents TypeScript build failures related to missing Vite environment typings.",
+  "frontend/src/hooks/useGlobalInitAndQueryErrors.ts": "Hook that observes React Query cache state for actor initialization and data queries to detect failures and return a prioritized, actionable English error message for display.",
+  "frontend/src/components/GlobalErrorBanner.tsx": "User-facing error banner component that displays connection/initialization errors with a retry button, using shadcn Alert component for consistent styling."
+}

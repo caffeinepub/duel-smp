@@ -1,0 +1,88 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Stabilize frontend build and add resilient initialization error UI",
+  "requirements": [
+    {
+      "id": "REQ-14",
+      "summary": "Eliminate frontend build blockers and add minimal diagnostics so build and runtime failures are actionable.",
+      "acceptanceCriteria": [
+        "A deployment/build trigger results in an observable build start (no silent no-op).",
+        "The project builds successfully without TypeScript errors, bundler errors, or Motoko compilation errors.",
+        "If a build fails, the failure output clearly indicates the first actionable error (not a generic/empty failure)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/vite-env.d.ts",
+          "operation": "create",
+          "description": "Add Vite client type references to prevent TypeScript build failures related to missing Vite environment typings."
+        },
+        {
+          "path": "frontend/src/components/AppLayout.tsx",
+          "operation": "modify",
+          "description": "Wire a non-blocking global initialization/data error surface into the main layout so failures are visible during deployment validation and at runtime. (Use shadcn-ui primitives if helpful, e.g., an Alert-style presentation; verify the component's usage instructions before implementing.)"
+        },
+        {
+          "path": "frontend/src/components/GlobalErrorBanner.tsx",
+          "operation": "create",
+          "description": "Create a small, user-facing banner component that can render an English error message for initialization/query failures while keeping navigation visible. (May use shadcn-ui components for consistent styling; verify the component's usage instructions before implementing.)"
+        },
+        {
+          "path": "frontend/src/hooks/useGlobalInitAndQueryErrors.ts",
+          "operation": "create",
+          "description": "Add a hook that observes React Query cache state to detect actor initialization failures and initial query failures (e.g., players/duels) and returns a concise, actionable English message for display."
+        }
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "summary": "Ensure statically referenced layout assets exist at the exact paths used by the UI.",
+      "acceptanceCriteria": [
+        "The files referenced by AppLayout exist under frontend/public with matching paths (including: /assets/generated/duel-smp-banner.dim_1600x400.png and /assets/generated/duel-smp-logo.dim_512x512.png).",
+        "The app loads with no missing-asset errors in the browser console for the banner/logo paths."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/duel-smp-banner.dim_1600x400.png",
+          "operation": "create",
+          "description": "Add the banner image file at the exact static path referenced by frontend/src/components/AppLayout.tsx to prevent build/runtime asset resolution failures."
+        },
+        {
+          "path": "frontend/public/assets/generated/duel-smp-logo.dim_512x512.png",
+          "operation": "create",
+          "description": "Add the logo image file at the exact static path referenced by frontend/src/components/AppLayout.tsx to prevent build/runtime asset resolution failures."
+        },
+        {
+          "path": "frontend/src/components/AppLayout.tsx",
+          "operation": "modify",
+          "description": "Verify static asset references match the exact filenames and paths under frontend/public/assets/generated (including duel-smp-banner.dim_1600x400.png and duel-smp-logo.dim_512x512.png) and adjust only if needed."
+        }
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "summary": "Show a clear English initialization/connectivity error message without blocking navigation.",
+      "acceptanceCriteria": [
+        "If backend actor creation or initial queries fail, the UI shows an English error message describing that data could not be loaded and suggests retrying.",
+        "The error state does not block navigation tabs from rendering."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/GlobalErrorBanner.tsx",
+          "operation": "modify",
+          "description": "Ensure the banner copy is clear English (e.g., data could not be loaded, check connection, retry) and that it renders in a compact, non-blocking way. (May use shadcn-ui components for consistent styling; verify the component's usage instructions before implementing.)"
+        },
+        {
+          "path": "frontend/src/hooks/useGlobalInitAndQueryErrors.ts",
+          "operation": "modify",
+          "description": "Detect (a) actor initialization failures and (b) initial players/duels query failures; produce a single prioritized, actionable message suitable for always-on display in the layout."
+        },
+        {
+          "path": "frontend/src/components/AppLayout.tsx",
+          "operation": "modify",
+          "description": "Place the GlobalErrorBanner in the layout so navigation tabs always render, and the error message appears above routed content when present. (If using shadcn-ui primitives, verify the component's usage instructions before implementing.)"
+        }
+      ]
+    }
+  ]
+}

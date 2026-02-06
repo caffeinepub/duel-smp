@@ -1,0 +1,211 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 7,
+  "summary": "App for the \"duel smp\" Minecraft server to randomly create duels, track hearts and match results, and maintain persistent player stats/leaderboards.",
+  "architectural_notes": [
+    "Default starting hearts per player: 10",
+    "Duel bets are 1–5 hearts per player",
+    "Bet visibility modes: Agreed (both see), Blind (hidden until match completion)",
+    "UI theme direction updated: use a blue & purple primary color scheme; app branding should use the provided logo asset"
+  ],
+  "known_issues": [
+    "Deployment/build is failing or not starting when retried (user reports it hasn't started yet after multiple attempts)."
+  ],
+  "isFixRequest": true,
+  "existing_features": [
+    {
+      "id": "feature-create-a-frontend-player-management-screen-that-lets-users-add-a-player-remove-a-player-and-view-player-details-current-hearts-wins-losses-total-hearts-won-lost-eliminated-status-all-user-facing-text-must-be-in-english",
+      "title": "Create a frontend Player Management screen that lets users add a player, remove a player, and view player details (current hearts, wins, losses, total hearts won/lost, eliminated status). All user-facing text must be in English.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-frontend-leaderboard-view-that-updates-from-the-backend-and-shows-at-minimum-current-hearts-wins-losses-and-total-hearts-won-lost-for-all-players-with-sensible-sorting-e-g-by-current-hearts-desc-tie-break-by-wins",
+      "title": "Create a frontend Leaderboard view that updates from the backend and shows (at minimum) current hearts, wins/losses, and total hearts won/lost for all players, with sensible sorting (e.g., by current hearts desc, tie-break by wins).",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-frontend-duel-creation-flow-that-supports-selecting-two-players-or-generating-a-random-eligible-duel-configuring-per-player-heart-bets-1-5-selecting-bet-mode-agreed-or-blind-and-creating-saving-the-duel-for-blind-mode-hide-bet-values-in-the-duel-display-until-the-match-is-completed",
+      "title": "Create a frontend Duel Creation flow that supports: selecting two players or generating a random eligible duel, configuring per-player heart bets (1–5), selecting bet mode (Agreed or Blind), and creating/saving the duel. For Blind mode, hide bet values in the duel display until the match is completed.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-frontend-match-completion-ui-for-an-active-duel-that-lets-the-user-declare-a-winner-with-a-single-click-triggers-backend-completion-and-then-updates-players-leaderboard-and-match-history-views-accordingly",
+      "title": "Create a frontend Match Completion UI for an active duel that lets the user declare a winner with a single click, triggers backend completion, and then updates players, leaderboard, and match history views accordingly.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-frontend-match-history-view-that-lists-past-duels-including-participants-winner-bet-mode-and-hearts-transferred-hearts-won-for-blind-mode-bets-become-visible-after-the-match-is-completed",
+      "title": "Create a frontend Match History view that lists past duels including participants, winner, bet mode, and hearts transferred (hearts won). For Blind mode, bets become visible after the match is completed.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-frontend-statistics-dashboard-that-shows-number-of-active-players-number-of-eliminated-players-total-matches-played-current-leader-define-consistently-e-g-highest-current-hearts-and-most-wins",
+      "title": "Create a frontend Statistics Dashboard that shows: number of active players, number of eliminated players, total matches played, current leader (define consistently, e.g., highest current hearts), and most wins.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-establish-a-cohesive-minecraft-inspired-visual-theme-for-the-entire-frontend-colors-typography-spacing-and-component-styling-and-apply-it-consistently-across-all-screens",
+      "title": "Establish a cohesive, Minecraft-inspired visual theme for the entire frontend (colors, typography, spacing, and component styling) and apply it consistently across all screens.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-update-the-global-ui-theme-to-a-blue-and-purple-color-scheme-across-the-entire-frontend-by-adjusting-the-tailwind-css-theme-tokens-in-frontend-src-index-css-the-stylesheet-imported-by-frontend-src-main-tsx-ensure-primary-accent-ring-and-chart-colors-all-reflect-the-new-blue-purple-palette-and-maintain-readable-contrast-in-both-light-and-dark-modes",
+      "title": "Update the global UI theme to a blue-and-purple color scheme across the entire frontend by adjusting the Tailwind CSS theme tokens in frontend/src/index.css (the stylesheet imported by frontend/src/main.tsx). Ensure primary, accent, ring, and chart colors all reflect the new blue/purple palette and maintain readable contrast in both light and dark modes.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-incorporate-the-user-provided-duel-smp-logo-into-the-app-branding-by-adding-it-as-a-static-asset-in-frontend-public-assets-generated-and-ensuring-the-header-logo-in-frontend-src-components-applayout-tsx-uses-it-keeping-existing-layout-and-alt-text-in-english",
+      "title": "Incorporate the user-provided Duel SMP logo into the app branding by adding it as a static asset in frontend/public/assets/generated and ensuring the header logo in frontend/src/components/AppLayout.tsx uses it (keeping existing layout and alt text in English).",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-investigate-and-fix-the-current-build-deployment-workflow-so-that-a-build-actually-starts-when-triggered-and-completes-successfully-for-the-current-codebase",
+      "title": "Investigate and fix the current build/deployment workflow so that a build actually starts when triggered and completes successfully for the current codebase.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-all-statically-referenced-frontend-assets-required-by-the-layout-are-present-and-correctly-named-so-they-cannot-cause-build-deploy-failures-or-runtime-asset-resolution-errors-e-g-the-banner-and-logo-referenced-by-frontend-src-components-applayout-tsx",
+      "title": "Ensure all statically referenced frontend assets required by the layout are present and correctly named so they cannot cause build/deploy failures or runtime asset resolution errors (e.g., the banner and logo referenced by frontend/src/components/AppLayout.tsx).",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-minimal-user-facing-error-surface-in-the-frontend-for-initialization-failures-e-g-actor-creation-query-failures-so-that-if-a-deployment-succeeds-but-backend-connectivity-fails-users-see-a-clear-english-error-message-instead-of-a-blank-non-responsive-ui",
+      "title": "Add a minimal, user-facing error surface in the frontend for initialization failures (e.g., actor creation/query failures) so that if a deployment succeeds but backend connectivity fails, users see a clear English error message instead of a blank/non-responsive UI.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Player management: add/remove players; initialize each player with 10 hearts",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Heart tracking + real-time leaderboard showing hearts, wins/losses, and total hearts won/lost",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Random duel creation with customizable heart bets (1–5 hearts per player)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Bet modes for duels: Agreed (visible) and Blind (hidden until match)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Match completion flow: click to declare winner; automatically transfer hearts and update stats",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Elimination system: mark players eliminated when hearts reach 0",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Match history: list past duels with winners and hearts won",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Statistics dashboard: active players, eliminations, total matches, current leader, most wins",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Persistent storage: automatically save all data and persist between sessions",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Implement persistent data models and CRUD operations for Duel SMP players, including: unique player identifier, display name, current hearts (default 10 on add), wins, losses, total hearts won, total hearts lost, and an eliminated flag that is automatically true when hearts reach 0.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Implement duel/match data models and persistence for match creation and match history, including: participating player IDs, per-player bet amount (1–5 hearts), bet mode (Agreed or Blind), timestamp, completion status, winner, hearts transferred, and derived stats updates.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Implement a backend API to generate a random duel between eligible players (non-eliminated players with sufficient hearts to cover their bet), and an API to create a duel with explicitly selected players, both supporting Agreed and Blind bet modes.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Implement match completion logic in the backend: when a duel is marked complete with a declared winner, automatically transfer hearts according to the configured bets, update both players’ current hearts, increment winner wins and loser losses, and update total hearts won/lost for both players. If a player reaches 0 hearts, mark them eliminated.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-14",
+      "summary": "Update UI theme to a blue & purple color scheme and incorporate the provided logo into the app branding",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "duel smp",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

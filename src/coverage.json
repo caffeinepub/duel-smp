@@ -1,0 +1,75 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-06T22:24:51.855Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 3,
+    "implemented": 3,
+    "items": [
+      {
+        "id": "REQ-14",
+        "summary": "Investigate and fix the current build/deployment workflow so that a build actually starts when triggered and completes successfully for the current codebase.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/vite-env.d.ts",
+          "frontend/src/components/AppLayout.tsx",
+          "frontend/src/components/GlobalErrorBanner.tsx",
+          "frontend/src/hooks/useGlobalInitAndQueryErrors.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/vite-env.d.ts",
+          "frontend/src/components/AppLayout.tsx",
+          "frontend/src/components/GlobalErrorBanner.tsx",
+          "frontend/src/hooks/useGlobalInitAndQueryErrors.ts"
+        ]
+      },
+      {
+        "id": "REQ-15",
+        "summary": "Ensure all statically referenced frontend assets required by the layout are present and correctly named so they cannot cause build/deploy failures or runtime asset resolution errors (e.g., the banner and logo referenced by frontend/src/components/AppLayout.tsx).",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/public/assets/generated/duel-smp-banner.dim_1600x400.png",
+          "frontend/public/assets/generated/duel-smp-logo.dim_512x512.png",
+          "frontend/src/components/AppLayout.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/AppLayout.tsx"
+        ]
+      },
+      {
+        "id": "REQ-16",
+        "summary": "Add a minimal, user-facing error surface in the frontend for initialization failures (e.g., actor creation/query failures) so that if a deployment succeeds but backend connectivity fails, users see a clear English error message instead of a blank/non-responsive UI.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/components/GlobalErrorBanner.tsx",
+          "frontend/src/hooks/useGlobalInitAndQueryErrors.ts",
+          "frontend/src/components/AppLayout.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/components/GlobalErrorBanner.tsx",
+          "frontend/src/hooks/useGlobalInitAndQueryErrors.ts",
+          "frontend/src/components/AppLayout.tsx"
+        ]
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "build-template/README.md",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/components/AppLayout.tsx",
+    "frontend/src/components/GlobalErrorBanner.tsx",
+    "frontend/src/hooks/useGlobalInitAndQueryErrors.ts",
+    "frontend/src/vite-env.d.ts",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

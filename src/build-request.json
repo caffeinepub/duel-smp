@@ -1,0 +1,82 @@
+{
+  "kind": "build_request",
+  "title": "Fix build/deployment not starting and ensure assets/theme changes do not break build",
+  "priority": "high",
+  "requirements": [
+    {
+      "id": "REQ-14",
+      "text": "Investigate and fix the current build/deployment workflow so that a build actually starts when triggered and completes successfully for the current codebase.",
+      "target": "both",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "It hasn't started yet"
+        ]
+      },
+      "acceptanceCriteria": [
+        "A deployment/build trigger results in an observable build start (no silent no-op).",
+        "The project builds successfully without TypeScript errors, bundler errors, or Motoko compilation errors.",
+        "If a build fails, the failure output clearly indicates the first actionable error (not a generic/empty failure)."
+      ]
+    },
+    {
+      "id": "REQ-15",
+      "text": "Ensure all statically referenced frontend assets required by the layout are present and correctly named so they cannot cause build/deploy failures or runtime asset resolution errors (e.g., the banner and logo referenced by frontend/src/components/AppLayout.tsx).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "It hasn't started yet"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The files referenced by AppLayout exist under frontend/public with matching paths (including: /assets/generated/duel-smp-banner.dim_1600x400.png and /assets/generated/duel-smp-logo.dim_512x512.png).",
+        "The app loads with no missing-asset errors in the browser console for the banner/logo paths."
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "text": "Add a minimal, user-facing error surface in the frontend for initialization failures (e.g., actor creation/query failures) so that if a deployment succeeds but backend connectivity fails, users see a clear English error message instead of a blank/non-responsive UI.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "It hasn't started yet"
+        ]
+      },
+      "acceptanceCriteria": [
+        "If backend actor creation or initial queries fail, the UI shows an English error message describing that data could not be loaded and suggests retrying.",
+        "The error state does not block navigation tabs from rendering."
+      ]
+    }
+  ],
+  "constraints": [
+    "Respect the single-actor backend architecture; keep Motoko logic in backend/main.mo.",
+    "Do not edit files under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or any files under frontend/src/components/ui (compose instead).",
+    "All user-facing text must be in English."
+  ],
+  "nonGoals": [
+    "Adding new gameplay features beyond stabilizing build/deploy and improving failure visibility.",
+    "Changing the app’s routing structure or adding new pages unless strictly necessary to surface errors."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}
